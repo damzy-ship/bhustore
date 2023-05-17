@@ -11,8 +11,7 @@ const Footer = () => {
                     <ul>
                         <li><a href = "/aboutus" className = "fs-15">About Us</a></li>
                         <li><a href = "/contact" className = "fs-15">Contact Us</a></li>
-                        <li><a href = "/blog" className = "fs-15">Blog</a></li>
-                        <li><a href = "faq" className = "fs-15">FAQ's</a></li>
+                        <li><a href = "https://bhustoreadmin.netlify.app" className = "fs-15">Sell @bhustore</a></li>
                     </ul>
                 </div>
 

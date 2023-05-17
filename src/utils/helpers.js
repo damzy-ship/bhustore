@@ -1,4 +1,5 @@
 export const formatPrice = (price) => {
+// eslint-disable-next-line
     if (price == Number(price)){
         return new Intl.NumberFormat('en-NG', {
             style: 'currency',

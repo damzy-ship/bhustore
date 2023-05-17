@@ -67,6 +67,10 @@ input, textarea, select{
     font-size: 1.6rem;
 }
 
+.App{
+  overflow-x: hidden;
+}
+
 /* custom utility classes */
 .container{
     max-width: 1320px;
