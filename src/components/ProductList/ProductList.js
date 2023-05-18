@@ -42,7 +42,7 @@ const ProductList = ({products, status}) => {
                         <h3 className='text-uppercase fw-7 text-regal-blue ls-1'>Our Products</h3>
                     </div>
                     <div className='product-items grid'>
-                        {
+                        { products &&
                             products.slice(0, 20).map(product => (
                                 <div className='product-item bg-white' key = {product.id} onClick = {() => viewModalHandler(product)}>
                                     <div className='product-item-img'>
