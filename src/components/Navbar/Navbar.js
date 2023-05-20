@@ -23,28 +23,7 @@ const Navbar = () => {
       <div className='navbar-content'>
         
         
-        <div className='navbar-bottom bg-regal-blue'>
-          <div className='container flex flex-between'>
-            <a href="https://bhustoreadmin.netlify.app">
-
-              <em> <i className = "fas fa-chevron-right"></i><i className = "fas fa-chevron-right"></i> <i className = "fas fa-chevron-right"></i>sell <span>@bhustore</span></em>
-            </a>
-            <ul className = {`nav-links flex ${isSidebarOpen ? 'show-nav-links' : ""}`}>
-              <button type = "button" className='navbar-hide-btn text-white' onClick={() => setIsSidebarOpen(false)}>
-                <i className='fas fa-times'></i>
-              </button>
-              {
-                categories.map(category => (
-                  <li key = {category.id}><Link to = {`/category/${category.id}`} className = "nav-link text-white" onClick={() => setIsSidebarOpen(false)}>{category.name}</Link></li>
-                ))
-              }
-            </ul>
-
-            <button type = "button" className='navbar-show-btn text-gold' onClick={() => setIsSidebarOpen(true)}>
-              <i className = "fas fa-bars"></i>
-            </button>
-          </div>
-        </div>
+       
         <div className = "container navbar-main">
           <div className = "navbar-top flex flex-between">
               <Link to = "/" className = "navbar-brand">
@@ -68,6 +47,28 @@ const Navbar = () => {
                   </div>
                 </Link>
               </div>
+          </div>
+        </div>
+        <div className='navbar-bottom bg-regal-blue'>
+          <div className='container flex flex-between'>
+            <a href="https://bhustoreadmin.netlify.app">
+
+              <em> <i className = "fas fa-chevron-right"></i><i className = "fas fa-chevron-right"></i> <i className = "fas fa-chevron-right"></i>sell <span>@bhustore</span></em>
+            </a>
+            <ul className = {`nav-links flex ${isSidebarOpen ? 'show-nav-links' : ""}`}>
+              <button type = "button" className='navbar-hide-btn text-white' onClick={() => setIsSidebarOpen(false)}>
+                <i className='fas fa-times'></i>
+              </button>
+              {
+                categories.map(category => (
+                  <li key = {category.id}><Link to = {`/category/${category.id}`} className = "nav-link text-white" onClick={() => setIsSidebarOpen(false)}>{category.name}</Link></li>
+                ))
+              }
+            </ul>
+
+            <button type = "button" className='navbar-show-btn text-gold' onClick={() => setIsSidebarOpen(true)}>
+              <i className = "fas fa-bars"></i>
+            </button>
           </div>
         </div>
       </div>

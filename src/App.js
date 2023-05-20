@@ -7,15 +7,15 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from "./components/Footer/Footer";
 import {Provider} from 'react-redux';
 import store from "./store/store";
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
-// const Divider = styled.div`
-//   margin-top: 125px;
+const Divider = styled.div`
+  margin-top: 125px;
 
-//   @media screen and (max-width: 800px){     
-//         margin-top: 112px
-//   }
-// `
+  @media screen and (max-width: 800px){     
+        margin-top: 112px
+  }
+`
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
       <Provider store = {store}>
         <BrowserRouter>
           <Navbar />
-          {/* <Divider /> */}
+          <Divider />
           <Routes>
             <Route path = "/" element = {<Home />} />
             <Route path = "/category/:id" element = {<Category />} />
