@@ -1,9 +1,9 @@
 @import "../../App.scss";
 
 .navbar{
-    padding: 0 0 0 0;
+    padding: 10px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-   
+    position: fixed;
     background-color: #fff;
 
     
@@ -74,8 +74,8 @@
         // padding-bottom: 5px;
 
         @media screen and (max-width: 600px){
-            padding-top: 60px;
-            padding-bottom: 5px;
+            // padding-top: 60px;
+            // padding-bottom: 5px;
     
         }
 
