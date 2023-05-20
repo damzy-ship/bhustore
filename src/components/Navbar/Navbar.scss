@@ -5,7 +5,8 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     position: fixed;
     background-color: #fff;
-
+    width: 100%;
+    z-index: 1000;
     
     &-brand{
         font-size: 30px;
