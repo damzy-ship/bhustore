@@ -21,10 +21,7 @@ const Navbar = () => {
   return (
     <nav className = "navbar">
       <div className='navbar-content'>
-        
-        
-       
-        <div className = "container navbar-main">
+        <div className = "container">
           <div className = "navbar-top flex flex-between">
               <Link to = "/" className = "navbar-brand">
                 <span className = "text-regal-blue">bhu</span><span className='text-gold'>store.</span>

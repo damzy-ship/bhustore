@@ -1,13 +1,13 @@
 @import "../../App.scss";
 
 .navbar{
-    padding: 10px 0 0 0;
+    padding: 16px 0 0 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     position: fixed;
-    background-color: #fff;
     width: 100%;
-    z-index: 1000;
-    
+    background-color:  #fff;
+    z-index: 100;
+
     &-brand{
         font-size: 30px;
         font-weight: 700;
@@ -70,27 +70,11 @@
             }
         }
     }
-    .navbar-main{
-        // padding-top: 50px;
-        // padding-bottom: 5px;
-
-        @media screen and (max-width: 600px){
-            // padding-top: 60px;
-            // padding-bottom: 5px;
-    
-        }
-
-    }
-
     .navbar-bottom{
         padding: 10px 0;
-        // position: fixed;
-        // z-index: 100;
-        width: 100%;
+        margin-top: 14px;
 
         > .container{
-            // justify-content: flex-end;
-
             a{
                 em{
                      color: $clr-gold;
@@ -202,3 +186,4 @@
         }
     }
 }
+
