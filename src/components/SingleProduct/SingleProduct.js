@@ -105,11 +105,9 @@ const SingleProduct = () => {
       }
         setImgOffSet((prev)=>prev-100);
     }
-    console.log({imagesLength: imgLength})
     
   }
   
-  console.log({imgOffset: imgOffSet})
   const increaseQty = () => {
     setQty((prevQty) => {
       let newQty = prevQty + 1;
@@ -156,7 +154,7 @@ const SingleProduct = () => {
           <div className = "details-left">
             <ImageContainer offSet={imgOffSet} className = "details-img">
               {
-                product.images.map((img)=><img src={img} alt='product'/>)
+                product.images.map((img, i)=><img key={i} src={img} alt='product'/>)
               }
               { product.images.length !== 1 &&
                 <div onClick={()=>handleImgChange('left')} className='left-arrow'>
@@ -175,7 +173,7 @@ const SingleProduct = () => {
             <div className = "details-info">
               <h3 className = "title text-regal-blue fs-22 fw-5">{product.productName}</h3>
               <TextContainer className='description text-pine-green'>
-              {product.description && product.description.split('\n').map((d)=><p className=''>{d}</p>)}
+              {product.description && product.description.split('\n').map((d, i)=><p key={i} className=''>{d}</p>)}
               </TextContainer>
               
               <div className='price fw-7 fs-24'>Price: {formatPrice(product.productPrice)}</div>
@@ -201,7 +199,7 @@ const SingleProduct = () => {
               </button>
               <button type = "button" className='btn-primary-outline add-to-cart-btn' onClick={()=>setShowContact(true)}>
                   <span className = "btn-icon">
-                  <i class="fa-solid fa-phone"></i>
+                  <i className="fa-solid fa-phone"></i>
                   </span>
                   <span className = 'btn-text'>{showContact? product.seller.number:'Show Contact'}</span>
               </button>

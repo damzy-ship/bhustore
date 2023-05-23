@@ -16,7 +16,6 @@ const Divider = styled.div`
         margin-top: 112px
   }
 `
-
 function App() {
   return (
     <div className="App">
@@ -25,8 +24,10 @@ function App() {
           <Navbar />
           <Divider />
           <Routes>
+            
             <Route path = "/" element = {<Home />} />
             <Route path = "/category/:id" element = {<Category />} />
+            <Route path = "/search/:searchId" element = {<Category />} />
             <Route path = "/cart" element = {<Cart />} />
           </Routes>
           <Footer />

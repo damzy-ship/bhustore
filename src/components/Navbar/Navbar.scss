@@ -1,5 +1,6 @@
 @import "../../App.scss";
 
+
 .navbar{
     padding: 16px 0 0 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -7,6 +8,10 @@
     width: 100%;
     background-color:  #fff;
     z-index: 100;
+
+    .disapear{
+        display: none;
+    }
 
     &-brand{
         font-size: 30px;
@@ -180,9 +185,24 @@
 
     @media screen and (max-width: 768px){
         .navbar-top{
+          
             .navbar-search{
-                display: none;
+                
+                // display: none;
+
+                input {
+                    // display: none;
+                }
             }
+        }
+
+        .navbar-brand{
+            // display: none;
+        }
+        
+        .navbar-btns{
+            
+            // display: none;
         }
     }
 }

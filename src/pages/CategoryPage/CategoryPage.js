@@ -7,14 +7,18 @@ import "./CategoryPage.scss";
 
 const CategoryPage = () => {
     const dispatch = useDispatch();
-    const {id} = useParams();
+    const {id, searchId} = useParams();
     const {catProductSingle: products, catProductSingleStatus: status} = useSelector((state) => state.category);
 
     useEffect(() => {
-      dispatch(fetchProductsByCategory(id, 'single'));
+      if(id){
+        dispatch(fetchProductsByCategory(id, 'single'));
+      }else if (searchId){
+        dispatch(fetchProductsByCategory(searchId, 'single', true));
+      }
       window.scrollTo(0, 0);
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [id]);
+    }, [id, searchId]);
 
     return (
       <div className = "category-page">
@@ -36,7 +40,7 @@ const CategoryPage = () => {
                 </span>
               </li>
               <li>
-                { id }
+                { id? id:`results for '${searchId}'` }
               </li>
             </ul>
           </div>

@@ -80,16 +80,24 @@ export const fetchCategories = () => {
     }
 }
 
+const returnQuery = (id, isSearchPage) => {
+    if(!isSearchPage){
+        return query(collection(db, "products"), where('categories', "array-contains", id));
+    }
+
+    const searchWords = [id, ...id.split(' ')];
+    return query(collection(db,"products"), where('searchWords', "array-contains-any", searchWords));
+}
 
 
-export const fetchProductsByCategory = (categoryID, dataType) => {
-    const q = query(collection(db, "products"), where("categories", "array-contains", categoryID));
+export const fetchProductsByCategory = (categoryID, dataType, isSearchPage = false) => {
+    
     return async function fetchCategoryProductThunk(dispatch) {
         if (dataType === 'all') dispatch(setCategoriesStatusAll(STATUS.LOADING));
         if (dataType === 'single') dispatch(setCategoriesStatusSingle(STATUS.LOADING));
 
         try {
-            const querySnapshot = await getDocs(q);
+            const querySnapshot = await getDocs(returnQuery(categoryID, isSearchPage));
             const data = []
             querySnapshot.forEach((doc) => {
                 // doc.data() is never undefined for query doc snapshots

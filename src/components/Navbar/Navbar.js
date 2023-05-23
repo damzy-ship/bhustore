@@ -4,9 +4,48 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCategories } from '../../store/categorySlice';
 import { getCartTotal } from '../../store/cartSlice';
+import styled from 'styled-components';
+
+const SearchForm = styled.form`
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      > span {
+        position: absolute; 
+        right: 70px;
+        cursor: pointer;
+      }
+
+      @media only screen and (max-width: 768px) {
+        flex: 1;
+        display: ${(props)=>props.showSearchBar ? 'flex' :'none'};
+      }
+
+      @media only screen and (min-width: 769px) {
+        span{
+          display: none;
+        }
+      }
+`;
+
+const SearchButton = styled.div`
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
+    @media only screen and (min-width: 769px) {
+      display: none;
+    }
+
+`;
+
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const [searchWord, setSearchWord] = useState('');
+  const [showSearchBar, setShowSearchBar] = useState(false);
   const {data: categories} = useSelector((state) => state.category);
   const {totalItems} = useSelector((state => state.cart));
 
@@ -23,18 +62,33 @@ const Navbar = () => {
       <div className='navbar-content'>
         <div className = "container">
           <div className = "navbar-top flex flex-between">
-              <Link to = "/" className = "navbar-brand">
+              {!showSearchBar && <Link to = "/" className = "navbar-brand">
                 <span className = "text-regal-blue">bhu</span><span className='text-gold'>store.</span>
               </Link>
+              }
+          
+              <SearchForm showSearchBar={showSearchBar} className = "navbar-search flex">
+                <input onChange={(e)=>{setSearchWord(e.target.value)}} type = "text" placeholder='Search here ...' />
+                <span>
+                  <i class="fa-solid fa-xmark" onClick={()=>setShowSearchBar(false)}></i>
+                </span>
+                <Link to={searchWord?`/search/${searchWord}`: '/'}>
+                  <button className = "navbar-search-btn" >
+                    <i className = "fas fa-search"></i>
+                  </button>
+                </Link>
+              </SearchForm>
+        
+              {
+                !showSearchBar &&
+                  <SearchButton showSearchBar={showSearchBar} className="navbar-search">
+                      <button className = "navbar-search-btn" onClick={()=>setShowSearchBar((true))}>
+                        <i className = "fas fa-search"></i>
+                      </button>
+                  </SearchButton>
+              }
 
-              <form className = "navbar-search flex">
-                <input type = "text" placeholder='Search here ...' />
-                <button type = "submit" className = "navbar-search-btn">
-                  <i className = "fas fa-search"></i>
-                </button>
-              </form>
-
-              <div className = "navbar-btns">
+              {!showSearchBar && <div className = "navbar-btns">
                 <Link to = "/cart" className="add-to-cart-btn flex">
                   <span className = "btn-ico">
                     <i className = "fas fa-shopping-cart"></i>
@@ -44,6 +98,7 @@ const Navbar = () => {
                   </div>
                 </Link>
               </div>
+              }
           </div>
         </div>
         <div className='navbar-bottom bg-regal-blue'>
