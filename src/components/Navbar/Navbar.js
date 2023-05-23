@@ -70,7 +70,7 @@ const Navbar = () => {
               <SearchForm showSearchBar={showSearchBar} className = "navbar-search flex">
                 <input onChange={(e)=>{setSearchWord(e.target.value)}} type = "text" placeholder='Search here ...' />
                 <span>
-                  <i class="fa-solid fa-xmark" onClick={()=>setShowSearchBar(false)}></i>
+                  <i class="fa-solid fa-xmark" onClick={()=>{setShowSearchBar(false)}}></i>
                 </span>
                 <Link to={searchWord?`/search/${searchWord}`: '/'}>
                   <button className = "navbar-search-btn" >

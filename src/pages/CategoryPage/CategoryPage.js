@@ -14,7 +14,7 @@ const CategoryPage = () => {
       if(id){
         dispatch(fetchProductsByCategory(id, 'single'));
       }else if (searchId){
-        dispatch(fetchProductsByCategory(searchId, 'single', true));
+        dispatch(fetchProductsByCategory(searchId.trim().toLowerCase(), 'single', true));
       }
       window.scrollTo(0, 0);
       // eslint-disable-next-line react-hooks/exhaustive-deps
