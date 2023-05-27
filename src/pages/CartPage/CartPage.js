@@ -118,19 +118,19 @@ const CartPage = () => {
                                                 {formatPrice(0)}
                                             </span>
                                         </li>
-                                        <li className='flex flex-between'>
+                                        {/* <li className='flex flex-between'>
                                             <span className='fw-4'>Delivery Cost</span>
                                             <span className='fw-7'>
                                                 <span className='fw-5 text-gold'>+&nbsp;</span>{formatPrice(deliveryCharge)}
                                             </span>
-                                        </li>
+                                        </li> */}
                                     </ul>
                                     <div className='cart-summary-total flex flex-between fs-18'>
                                         <span className='fw-6'>Grand Total: </span>
-                                        <span className='fw-6'>{formatPrice(totalAmount + deliveryCharge)}</span>
+                                        <span className='fw-6'>{formatPrice(totalAmount)}</span>
                                     </div>
                                     <div className='cart-summary-btn'>
-                                        <button type = "button" className='btn-secondary'>Proceed to Checkout</button>
+                                        <button type = "button" className='btn-secondary'>Contact Seller to Buy</button>
                                     </div>
                                 </div>
                             </div>

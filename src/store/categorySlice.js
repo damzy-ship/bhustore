@@ -84,7 +84,6 @@ const returnQuery = (id, isSearchPage) => {
     if(!isSearchPage){
         return query(collection(db, "products"), where('categories', "array-contains", id));
     }
-
     const searchWords = [id, ...id.split(' ')];
     return query(collection(db,"products"), where('searchWords', "array-contains-any", searchWords));
 }
