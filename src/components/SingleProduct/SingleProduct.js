@@ -85,7 +85,6 @@ const SingleProduct = () => {
   const { data: product } = useSelector(state => state.modal);
   const [imgOffSet, setImgOffSet] = useState(0);
   const [showContact, setShowContact] = useState(false);
-
   const handleImgChange = (direction) => {
     const imgLength = product.images && product.images.length - 1;
     
