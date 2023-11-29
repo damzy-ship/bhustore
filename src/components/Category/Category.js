@@ -32,8 +32,6 @@ const Category = ({categories, status}) => {
                             <Link to = {`category/${category.id}`} key = {category.id}>
                                 <div className = "category-item" >
                                     <ImageContainer img={category.images[0]} />
-                                        
-
                                     <div className = "category-item-name text-center">
                                         <h6 className='fs-20'>{category.name}</h6>
                                     </div>

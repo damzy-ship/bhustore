@@ -13,7 +13,7 @@ const HomePage = () => {
   const {data: categories, status: categoryStatus} = useSelector((state) => state.category);
   const {data: products, status: productStatus} = useSelector((state) => state.product);
   const {catProductAll: productsByCategory, catProductAllStatus} = useSelector((state) => state.category);
-  const catToFetch = ['bags', 'shoes', 'food and snacks','accessories'];
+  const catToFetch = ['bags', 'shoes', 'beauty and makeup','accessories'];
   useEffect(() => {
     dispatch(fetchProducts());
     dispatch(fetchCategories());

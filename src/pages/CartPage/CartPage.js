@@ -16,7 +16,7 @@ const ContactBox = styled.div`
 
 const CartPage = () => {
     const dispatch = useDispatch();
-    const {data: cartProducts, totalItems, totalAmount, deliveryCharge} = useSelector(state => state.cart);
+    const {data: cartProducts, totalItems, totalAmount} = useSelector(state => state.cart);
 
     useEffect(()=> {
         window.scrollTo(0,0);
@@ -82,7 +82,7 @@ const CartPage = () => {
                                                         </div>
                                                     </div>
                                                     <div className = "flex flex-between">
-                                                        <div className='text-pine-green fw-4 fs-15 price'>Price : {formatPrice(cartProduct.productPrice)}.00</div>
+                                                        <div className='text-pine-green fw-4 fs-15 price'>Price : {formatPrice(cartProduct.productPrice)}</div>
                                                         <div className='sub-total fw-6 fs-18 text-regal-blue'>
                                                             <span>Sub Total: </span>
                                                             <span className=''>{formatPrice(cartProduct.totalPrice)}</span>

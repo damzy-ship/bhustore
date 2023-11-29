@@ -27,7 +27,7 @@ const ImgSlider = () => {
 
   return (
     <Slider {...settings} className = "hero-slider">
-      {
+      {sliderImages &&
         sliderImages.map((img)=>
         <div className='hero-slider-item'>
         <img src = {img} alt = "" />
