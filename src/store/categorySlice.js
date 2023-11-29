@@ -59,6 +59,7 @@ export const {
 export default categorySlice.reducer;
 
 export const fetchCategories = () => {
+    const CATEGORIES = ['accessories','bags','clothes','food and snacks', 'shoes']
     return async function fetchCategoryThunk(dispatch) {
         dispatch(setStatus(STATUS.LOADING));
         try {
@@ -72,7 +73,7 @@ export const fetchCategories = () => {
                 });
             });
 
-            dispatch(setCategories(data.slice(0, 5)));
+            dispatch(setCategories(data.filter((d)=>CATEGORIES.includes(d.name))));
             dispatch(setStatus(STATUS.IDLE));
         } catch (error) {
             dispatch(setStatus(STATUS.ERROR));

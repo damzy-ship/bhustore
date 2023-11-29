@@ -42,7 +42,7 @@ const Footer = () => {
                         </li>
                         <li>
                             <span><i className = "fas fa-envelope"></i></span>
-                            <span className = "fs-15">agudadamilola28@gmail.com</span>
+                            <span className = "fs-15">bhustore1@gmail.com</span>
                         </li>
                     </ul>
                 </div>

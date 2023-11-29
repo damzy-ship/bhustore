@@ -6,6 +6,7 @@ import { addToCart } from '../../store/cartSlice';
 import { useNavigate } from 'react-router-dom';
 import { formatPrice } from '../../utils/helpers';
 import styled from 'styled-components';
+import { no_image } from '../../utils/images';
 
 const ImageContainer = styled.div`
     overflow: hidden;
@@ -86,7 +87,7 @@ const SingleProduct = () => {
   const [imgOffSet, setImgOffSet] = useState(0);
   const [showContact, setShowContact] = useState(false);
   const handleImgChange = (direction) => {
-    const imgLength = product.images && product.images.length - 1;
+    const imgLength = product?.images && product.images.length - 1;
     
     if(direction==="right"){
       if(imgOffSet >= imgLength*100){
@@ -153,14 +154,16 @@ const SingleProduct = () => {
           <div className = "details-left">
             <ImageContainer offSet={imgOffSet} className = "details-img">
               {
+               product?.images ? 
                 product.images.map((img, i)=><img key={i} src={img} alt='product'/>)
+                : <img src={no_image} alt='product'/>
               }
-              { product.images.length !== 1 &&
+              { product?.images && product.images.length !== 1 &&
                 <div onClick={()=>handleImgChange('left')} className='left-arrow'>
                   <span >{'<'}</span>
                 </div>
               }
-              { product.images.length !== 1 &&
+              { product?.images && product.images.length !== 1 &&
               <div onClick={()=>handleImgChange('right')} className='right-arrow'>
                 <span>{'>'}</span>
               </div>
