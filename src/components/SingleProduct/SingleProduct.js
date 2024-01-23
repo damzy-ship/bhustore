@@ -86,7 +86,7 @@ const SingleProduct = () => {
   const { data: product } = useSelector(state => state.modal);
   const [imgOffSet, setImgOffSet] = useState(0);
   const [showContact, setShowContact] = useState(false);
-  const [hasCopied, setHasCopied] = useState(false);
+  // const [hasCopied, setHasCopied] = useState(false);
   const handleImgChange = (direction) => {
     const imgLength = product?.images && product.images.length - 1;
     
@@ -144,13 +144,13 @@ const SingleProduct = () => {
     }
   }
 
-  const handleCopyReferralLink = () => {
-    navigator.clipboard.writeText(product.seller.number);
-    setHasCopied(true);
-    setTimeout(() => {
-      setHasCopied(false);
-    }, 3000);
-  };
+  // const handleCopyReferralLink = () => {
+  //   navigator.clipboard.writeText(product.seller.number);
+  //   setHasCopied(true);
+  //   setTimeout(() => {
+  //     setHasCopied(false);
+  //   }, 3000);
+  // };
 
 
   return (
@@ -209,7 +209,7 @@ const SingleProduct = () => {
                   </span>
                   <span className = 'btn-text'>Add To Cart</span>
               </button>
-              <button type = "button" className='btn-primary-outline add-to-cart-btn' onClick={()=>{setShowContact(true);handleCopyReferralLink}}>
+              <button type = "button" className='btn-primary-outline add-to-cart-btn' onClick={()=>setShowContact(true)}>
                   <span className = "btn-icon">
                   <i className="fa-solid fa-phone"></i>
                   </span>
