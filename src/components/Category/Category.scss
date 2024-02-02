@@ -11,12 +11,13 @@
         }
     }
 
-    @media screen and (min-width: 576px){
+    @media screen and (min-width: 200px){
         grid-template-columns: repeat(2, 1fr);
+        // grid-template-rows: 100px;
         column-gap: 20px;
     }
 
-    @media screen and (min-width: 992px){
+    @media screen and (min-width: 500px){
         grid-template-columns: repeat(3, 1fr);
     }
 
