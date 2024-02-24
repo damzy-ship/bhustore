@@ -86,6 +86,7 @@ const SingleProduct = () => {
   const { data: product } = useSelector(state => state.modal);
   const [imgOffSet, setImgOffSet] = useState(0);
   const [showContact, setShowContact] = useState(false);
+  // const [hasCopied, setHasCopied] = useState(false);
   const handleImgChange = (direction) => {
     const imgLength = product?.images && product.images.length - 1;
     
@@ -142,6 +143,15 @@ const SingleProduct = () => {
       dispatch(setIsModalVisible(false));
     }
   }
+
+  // const handleCopyReferralLink = () => {
+  //   navigator.clipboard.writeText(product.seller.number);
+  //   setHasCopied(true);
+  //   setTimeout(() => {
+  //     setHasCopied(false);
+  //   }, 3000);
+  // };
+
 
   return (
     <div className='overlay-bg' onClick = {modalOverlayHandler}>
