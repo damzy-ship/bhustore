@@ -85,8 +85,7 @@ const SingleProduct = () => {
   const [qty, setQty] = useState(1);
   const { data: product } = useSelector(state => state.modal);
   const [imgOffSet, setImgOffSet] = useState(0);
-  const [showContact, setShowContact] = useState(false);
-  // const [hasCopied, setHasCopied] = useState(false);
+  const [hasCopied, setHasCopied] = useState(false);
   const handleImgChange = (direction) => {
     const imgLength = product?.images && product.images.length - 1;
     
@@ -144,13 +143,13 @@ const SingleProduct = () => {
     }
   }
 
-  // const handleCopyReferralLink = () => {
-  //   navigator.clipboard.writeText(product.seller.number);
-  //   setHasCopied(true);
-  //   setTimeout(() => {
-  //     setHasCopied(false);
-  //   }, 3000);
-  // };
+  const handleCopySellerNumber = () => {
+    navigator.clipboard.writeText(product.seller.number);
+    setHasCopied(true);
+    setTimeout(() => {
+      setHasCopied(false);
+    }, 1000);
+  };
 
 
   return (
@@ -209,11 +208,11 @@ const SingleProduct = () => {
                   </span>
                   <span className = 'btn-text'>Add To Cart</span>
               </button>
-              <button type = "button" className='btn-primary-outline add-to-cart-btn' onClick={()=>setShowContact(true)}>
+              <button type = "button" className='btn-primary-outline add-to-cart-btn' onClick={handleCopySellerNumber}>
                   <span className = "btn-icon">
                   <i className="fa-solid fa-phone"></i>
                   </span>
-                  <span className = 'btn-text'>{showContact? product.seller.number:'Show Contact'}</span>
+                  <span className = 'btn-text'>{hasCopied? product.seller.number:'Copy Contact'}</span>
               </button>
               </ActionContainer>
             </div>
