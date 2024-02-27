@@ -9,10 +9,15 @@ import styled from 'styled-components';
 const ImageContainer = styled.div`
     border-radius: 10px;
     overflow: hidden;
-    @media (max-width: 400px) {
+    @media (max-width: 599px) {
         height: 100px;
   }
-    height: 200px;
+    @media (min-width: 600px) {
+        height: 150px;
+  }
+    @media (min-width: 700px) {
+        height: 200px;
+  }
     background-image: ${(props)=>`url(${props.img})`};
     background-position: center;
     background-size: cover;
