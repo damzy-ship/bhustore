@@ -59,7 +59,7 @@ export const {
 export default categorySlice.reducer;
 
 export const fetchCategories = () => {
-    const CATEGORIES = ['accessories','bags','clothes','food and snacks', 'shoes']
+    const CATEGORIES = ['accessories','bags','clothes', 'decors', 'drinks','food and snacks', 'shoes','sports', 'perfumes and deodorants']
     return async function fetchCategoryThunk(dispatch) {
         dispatch(setStatus(STATUS.LOADING));
         try {
@@ -72,6 +72,8 @@ export const fetchCategories = () => {
                     id: doc.id
                 });
             });
+
+            console.log(data)
 
             dispatch(setCategories(data.filter((d)=>CATEGORIES.includes(d.name))));
             dispatch(setStatus(STATUS.IDLE));
