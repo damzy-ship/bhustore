@@ -73,9 +73,9 @@ export const fetchCategories = () => {
                 });
             });
 
-            console.log(data)
+            // console.log(data)
 
-            dispatch(setCategories(data.filter((d)=>CATEGORIES.includes(d.name))));
+            dispatch(setCategories(data.filter((d)=>CATEGORIES.includes(d.name.trim()))));
             dispatch(setStatus(STATUS.IDLE));
         } catch (error) {
             dispatch(setStatus(STATUS.ERROR));
