@@ -228,8 +228,8 @@ const SingleProduct = () => {
                   <span className="btn-text">Add To Cart</span>
                 </button>
                 {product.seller.whatsappLink && (
-                  <a href={"https://"+product.seller.whatsappLink}>
-                    <button className="btn-primary-outline add-to-cart-btn">
+                  <button className="btn-primary-outline add-to-cart-btn">
+                    <a href={"https://" + product.seller.whatsappLink}>
                       <span className="btn-icon">
                         <i
                           style={{ fontSize: "2rem" }}
@@ -237,8 +237,8 @@ const SingleProduct = () => {
                         ></i>
                       </span>
                       <span className="btn-text">Contact</span>
-                    </button>
-                  </a>
+                    </a>
+                  </button>
                 )}
                 {!product.seller.whatsappLink && (
                   <button
